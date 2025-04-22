@@ -1,4 +1,5 @@
 import Expr 
+import Eval
 -- import qualified Data.Text as T
 import Parser
 import Control.Monad.State
