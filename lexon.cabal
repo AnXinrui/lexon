@@ -1,0 +1,77 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lexon
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/AnXinrui/lexon#readme>
+homepage:       https://github.com/AnXinrui/lexon#readme
+bug-reports:    https://github.com/AnXinrui/lexon/issues
+author:         xinrui.an
+maintainer:     a-xr@qq.com
+copyright:      2025 axr
+license:        MIT
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/AnXinrui/lexon
+
+library
+  exposed-modules:
+      Eval
+      Expr
+      Parser
+  other-modules:
+      Paths_lexon
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , mtl
+    , text
+  default-language: Haskell2010
+
+executable lexon-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_lexon
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , lexon
+    , mtl
+    , text
+  default-language: Haskell2010
+
+test-suite lexon-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_lexon
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , lexon
+    , mtl
+    , text
+  default-language: Haskell2010
