@@ -114,7 +114,7 @@ parseFactor = ss *> char '(' *> parseComp <* char ')'
           <|> ss *> parseVal
 
 parseConst :: Parser Expr
-parseConst = Number <$> decimal 
+parseConst = Number <$> double 
           <|> ("True"  $> Boolean True)
           <|> ("False" $> Boolean False)
 

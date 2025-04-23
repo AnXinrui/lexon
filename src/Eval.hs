@@ -37,7 +37,7 @@ eval (Div e1 e2) env = do
   v1 <- eval e1 env
   v2 <- eval e2 env
   case (v1, v2) of
-    (NumVal n1, NumVal n2) -> return $ NumVal (n1 `div` n2)
+    (NumVal n1, NumVal n2) -> return $ NumVal (n1 / n2)
     _ -> error "Type error in Add: expected NumVal"
 
 
@@ -64,6 +64,13 @@ eval (If g e1 e2) env = eval g env >>= \case
   (BoolVal True)  -> eval e1 env
   (BoolVal False) -> eval e2 env
   _               -> error "Type error in If: expected Boolean"
+
+-- eval (Where c es) env = do 
+--   r <- eval c env 
+--   case r of 
+--     BoolVal True  -> eval es env >> eval (While c es) env 
+--     BoolVal False -> return Null
+--     _             -> error "while condition must be boolean"
 
 eval (Let d e) env = elab env d >>= eval e 
 

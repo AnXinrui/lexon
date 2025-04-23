@@ -10,7 +10,7 @@ module Expr (
 -- Identifier
 type Ident = String 
 
-data Expr = Number Int
+data Expr = Number Double
           | Boolean Bool
           | Add Expr Expr
           | Sub Expr Expr 
@@ -37,7 +37,7 @@ data Expr = Number Int
 type Env = [(Ident, Value)]
 
 -- return value
-data Value = NumVal Int 
+data Value = NumVal Double 
           | BoolVal Bool 
           | Closure [Ident] Expr Env 
           | Null 
